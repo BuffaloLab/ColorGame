@@ -3,19 +3,23 @@ using System.Collections;
 
 public class Experiment : MonoBehaviour {
 
-	public GameObject player;
+	public PlayerController player;
 	public GiveReward reward;
 	public GameClock clock;
 	public GameObject target;
 	public GameObject sampleColor;
 	public Camera colorCamera;
 
+
 	//Target Settings
-	public float targetSize = 3.0f;
+	public float targetSize = 1.0f;
 	public float targetDisplayTime = 3.0f;
-	private float targetX;
-	private float targetY;
-	private bool isSample = false;
+	public float targetX;
+	public float targetY;
+	public bool isSample = false;
+	public float timeOnTarget = 1.0f;
+
+	private float countdown;
 
 	//Experiment is a singleton
 	private static Experiment _instance;
@@ -29,12 +33,13 @@ public class Experiment : MonoBehaviour {
 	void Start () {
 		reward = GameObject.FindGameObjectWithTag ("Reward").GetComponent<GiveReward> ();
 		clock = GameObject.FindGameObjectWithTag ("Clock").GetComponent<GameClock> ();
+		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		NewTrial ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (DistanceToTarget()<targetSize){
+		if ((DistanceToTarget()<targetSize)&(player.timestopped>timeOnTarget)){
 			reward.RewardAndFreeze (1);
 			StartCoroutine (RewardEndTrial ());
 		}
@@ -69,11 +74,21 @@ public class Experiment : MonoBehaviour {
 		
 
 	void NewTrial(){
-		targetX = Random.Range (0.0f,10.0f);
-		targetY = Random.Range (0.0f,10.0f);
-		target.transform.position =  new Vector3(targetX, targetY, 0);
+		SetTarget ();
 		StartCoroutine (DisplaySample ());
 		StartCoroutine (FreezeForSample ()); 
+	}
+
+	void SetTarget(){
+		targetX = player.startpos.x;
+		targetY = player.startpos.y;
+		if (player.allowLeftRight) {
+			targetX = Random.Range (0.0f, 10.0f);
+		}
+		if (player.allowUpDown) {
+			targetY = Random.Range (0.0f, 10.0f);
+		}
+		target.transform.position =  new Vector3(targetX, targetY, 0);
 	}
 
 	float DistanceToTarget(){
