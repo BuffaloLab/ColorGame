@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ColorController : MonoBehaviour {
+public class ColorController : MotherOfLogs {
 	public GameObject Player;
 	public Camera colorCamera;
 	Experiment exp;
@@ -30,6 +30,10 @@ public class ColorController : MonoBehaviour {
 		} else {
 			colorCamera.backgroundColor = getColor (X, Y);
 		}
+
+		if (!exp.isReplay) {
+			LogColor ();
+		}
 	}
 
 	public Color getColor(float X, float Y) {
@@ -37,5 +41,11 @@ public class ColorController : MonoBehaviour {
 		Vector3 yComponent = zero + (Y / maxbound) * (yVector-zero);
 		Vector3 newColor = xComponent + yComponent;
 		return new Color (newColor.x, newColor.y, newColor.z, 1);
+	}
+
+	void LogColor(){
+		//experimentLog.Log("Test_position");
+		experimentLog.Log (GameClock.Instance.SystemTime_Milliseconds, 
+		                   "Color" + ",POSITION," + colorCamera.backgroundColor);
 	}
 }
