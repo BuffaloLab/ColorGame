@@ -11,6 +11,11 @@ public class PlayerController : MonoBehaviour {
 	public Vector3 startpos;
 	public int dimension;
 
+	//Only used if trying to lock direction. Experiment script must check that this makes sense.
+	public bool lockDirection = false;
+	//must be +/- 1, for updown/leftright
+	public int lockedDirection;
+
 	// Use this for initialization
 	void Start () {
 		if (allowLeftRight & allowUpDown) {
@@ -54,8 +59,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void MoveMe(float updown, float leftright){
-		transform.Translate (new Vector3 (leftright*speed*Time.deltaTime, updown * speed * Time.deltaTime, 0));; 
-		print (new Vector3 (leftright * speed * Time.deltaTime, updown * speed * Time.deltaTime, 0));
+		transform.Translate (new Vector3 (leftright*speed*Time.deltaTime, updown * speed * Time.deltaTime, 0)); 
 		Vector3 boundedPos =transform.position;
 
 		if (boundedPos.x>maxbound){

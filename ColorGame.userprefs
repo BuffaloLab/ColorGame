@@ -1,13 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ColorController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Logging\EyeLogController.cs">
     <Files>
+      <File FileName="Assets\Scripts\Experiment.cs" Line="13" Column="31" />
       <File FileName="Assets\Scripts\DisplayScript.cs" Line="22" Column="1" />
-      <File FileName="Assets\Scripts\PlayerController.cs" Line="27" Column="22" />
-      <File FileName="Assets\Scripts\ColorController.cs" Line="24" Column="35" />
-      <File FileName="Assets\Scripts\Experiment.cs" Line="75" Column="20" />
-      <File FileName="Assets\Scripts\GameClock.cs" Line="7" Column="37" />
-      <File FileName="Assets\Scripts\NationalInstruments\GiveReward.cs" Line="52" Column="1" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="14" Column="94" />
+      <File FileName="Assets\Scripts\ColorController.cs" Line="16" Column="2" />
+      <File FileName="Assets\Scripts\Logging\LogController.cs" Line="16" Column="3" />
+      <File FileName="Assets\Scripts\Logging\EyeLogController.cs" Line="10" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
