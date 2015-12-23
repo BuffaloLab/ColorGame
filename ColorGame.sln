@@ -1,7 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{18A68DDE-E581-C31A-15C2-40CE42830372}") = "ColorGame", "Assembly-CSharp.csproj", "{9B49D1F5-95CD-C1B3-4358-FC9089DE1BC9}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorGame.CSharp", "ColorGame.CSharp.csproj", "{8D0793AD-C9AC-CAA6-ECAA-43D4CD151F79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,16 +9,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9B49D1F5-95CD-C1B3-4358-FC9089DE1BC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9B49D1F5-95CD-C1B3-4358-FC9089DE1BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9B49D1F5-95CD-C1B3-4358-FC9089DE1BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9B49D1F5-95CD-C1B3-4358-FC9089DE1BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D0793AD-C9AC-CAA6-ECAA-43D4CD151F79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D0793AD-C9AC-CAA6-ECAA-43D4CD151F79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D0793AD-C9AC-CAA6-ECAA-43D4CD151F79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D0793AD-C9AC-CAA6-ECAA-43D4CD151F79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-												GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
-	EndGlobalSection
-
 EndGlobal

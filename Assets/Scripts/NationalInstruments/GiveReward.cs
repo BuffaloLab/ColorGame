@@ -1,19 +1,18 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 using System.Collections;
 using System.Runtime.InteropServices;
 using System.Reflection;
 
 public class GiveReward : MonoBehaviour {
-	public bool isFrozen = true;
-	//public AudioSource beepSound;
+	public bool isFrozen;
+	public AudioSource beepSound;
 
 	#if NIDAQ
 		[DllImport ("NidaqPlugin")]
-		private static extern int reward(int on);
+		private static extern int Reward(int on);
 	#else
-		int reward(int on)
+		int Reward(int on)
 		{
 			if (on == 1) {
 			Debug.Log("no nidaq, start reward");
@@ -35,10 +34,10 @@ public class GiveReward : MonoBehaviour {
 	{
 		if (Input.GetKeyDown (KeyCode.Z)) {
 			Debug.Log ("reward on");
-			Debug.Log (reward (1));
+			Debug.Log (Reward (1));
 		} else if (Input.GetKeyDown (KeyCode.X)) {
 			Debug.Log ("stop reward");
-			Debug.Log (reward (0));
+			Debug.Log (Reward (0));
 		}
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
@@ -55,13 +54,13 @@ public class GiveReward : MonoBehaviour {
 	}
 
 	IEnumerator GiveBeeps(int numBeeps, bool freezeMe){
-		//beepSound.Play();
+		beepSound.Play();
 		isFrozen = freezeMe;
 		for (int i = 0; i<numBeeps; i++) {
 			print ("BEEP! " + i);
-			reward (1);
+			Reward (1);
 			yield return new WaitForSeconds (.2f);
-			reward (0);
+			Reward (0);
 			yield return new WaitForSeconds (.05f);
 		}
 		isFrozen = false;

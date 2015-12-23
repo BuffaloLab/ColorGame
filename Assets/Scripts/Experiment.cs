@@ -135,7 +135,7 @@ public class Experiment : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if ((DistanceToTarget()<targetSize)&(player.timestopped>timeOnTarget)){
-			reward.RewardAndFreeze (1);
+			reward.RewardAndFreeze (3);
 			StartCoroutine (RewardEndTrial ());
 		}
 
